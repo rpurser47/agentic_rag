@@ -3,6 +3,7 @@ langchain
 langgraph
 langchainhub
 langchain-community
+langchain_chroma
 tavily-python
 chromadb
 python-dotenv
