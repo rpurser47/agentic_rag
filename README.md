@@ -53,11 +53,13 @@ graph TD;
         websearch(websearch)
         __end__([<p>__end__</p>]):::last
         __start__ --> retrieve;
+        generate -. &nbsp;useful&nbsp; .-> __end__;
+        generate -. &nbsp;not useful&nbsp; .-> websearch;
         grade_documents -.-> generate;
         grade_documents -.-> websearch;
         retrieve --> grade_documents;
         websearch --> generate;
-        generate --> __end__;
+        generate -. &nbsp;not supported&nbsp; .-> generate;
         classDef default fill:#f2f0ff,line-height:1.2
         classDef first fill-opacity:0
         classDef last fill:#bfb6fc
