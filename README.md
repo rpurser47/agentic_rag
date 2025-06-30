@@ -1,6 +1,6 @@
 # agentic_rag exercise
 
-I'm learning to use [LangGraph](https://www.langchain.com/langgraph)l by taking a [Udemy class](https://www.udemy.com/course/langgraph)
+I'm learning to use [LangGraph](https://www.langchain.com/langgraph) by taking a [Udemy class](https://www.udemy.com/course/langgraph)
 
 Agent architecture using CRAG built with LangGraph that does [Corrective Retrieval-Augmented Generation (RAG)](https://medium.com/@sahin.samia/crag-corrective-retrieval-augmented-generation-in-llm-what-it-is-and-how-it-works-ce24db3343a7) with RAG from blog posts from [https://lilianweng.github.io/posts](https://lilianweng.github.io/posts). The results are scored for relevance to the question, and then augmented with a web search, if not enough information is found.  Then, these results are used to generate a response. 
 
@@ -56,7 +56,8 @@ graph TD;
         generate(generate)
         websearch(websearch)
         __end__([<p>__end__</p>]):::last
-        __start__ --> retrieve;
+        __start__ -.-> retrieve;
+        __start__ -.-> websearch;
         generate -. &nbsp;useful&nbsp; .-> __end__;
         generate -. &nbsp;not useful&nbsp; .-> websearch;
         grade_documents -.-> generate;
